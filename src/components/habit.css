@@ -1,0 +1,46 @@
+button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+li {
+    list-style: none;
+    margin: 1rem;
+}
+
+.habit-name{
+    font-size: 2rem;
+    font-weight: 500;
+    color: cornflowerblue;
+}
+
+.habit-count{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    background: darkgrey;
+    color: white;
+    text-align: center;
+    margin: 0 .8rem;
+}
+
+
+.habit-button{
+    font-size: 2rem;
+}
+
+.habit-button:hover{
+    opacity: .8;
+}
+.habit-increase,
+.habit-decrease{
+    color: tomato;
+}
+
+.habit-delete{
+    color: teal;
+}

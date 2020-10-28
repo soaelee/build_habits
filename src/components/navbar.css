@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    padding: .5em .8em;
+    background: antiquewhite;
+}
+
+.nav-logo{
+    color: darkblue;
+}
+
+.nav-title{
+    margin: 1rem;
+    font-weight: 700;
+}
+
+.nav-count{
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 2rem;
+    background-color: gray;
+    color: white;
+    border-radius: 50%; 
+    text-align: center;   
+}
