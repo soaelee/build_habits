@@ -35,6 +35,10 @@ export default function Habits(props) {
                     />
                 ))}
             </ul>
+            <button
+                className="habit-reset"
+                onClick={props.onReset}
+            >Reset All</button>
         </>
     )
 }

@@ -30,23 +30,32 @@ function App() {
   ]);
 
   const handleIncrement = (habit) => {
-    const array = [...habits];
-    const index = habits.indexOf(habit);
-    array[index].count++;
+    // const array = [...habits];
+    // const index = habits.indexOf(habit);
+    // array[index].count++;
+    // setHabits(array);
+    const array = habits.map(item => {
+      if (item.id == habit.id) {
+        return { ...habit, count: habit.count + 1 }
+      }
+      return item
+    });
     setHabits(array);
   }
 
   const handleDecrement = (habit) => {
-    const array = [...habits];
-    const index = habits.indexOf(habit);
-    const count = array[index].count - 1;
-    array[index].count = count < 0 ? 0 : count;
+    const array = habits.map(item => {
+      if (item.id == habit.id) {
+        const count = habit.count - 1;
+        return { ...habit, count: count < 0 ? 0 : count }
+      }
+      return item
+    });
     setHabits(array);
   }
 
   const handleDelete = (habit) => {
     const array = habits.filter(item => item.id !== habit.id);
-    console.log(array);
     setHabits(array);
   }
 
@@ -54,6 +63,17 @@ function App() {
     const array = [...habits, { id: Date.now(), name, count: 0 }];
     setHabits(array);
   }
+
+  const handleReset = () => {
+    const array = habits.map(habit => {
+      if (habit.count > 0) {
+        return { ...habit, count: 0 }
+      }
+      return habit
+    });
+    setHabits(array);
+  }
+
   return (
     <div className="container">
       <Navbar total={habits.filter(habit => habit.count > 0).length} />
@@ -63,6 +83,7 @@ function App() {
         onDecrement={handleDecrement}
         onDelete={handleDelete}
         onAdd={handleAdd}
+        onReset={handleReset}
       />
     </div>
   )

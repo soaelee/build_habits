@@ -6,3 +6,7 @@
 
 
 본 강의에서의 class component를 function component로 변환하며 연습중입니다.
+
+### 보충사항
+
+PureComponent를 구현하는 법
