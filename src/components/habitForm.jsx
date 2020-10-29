@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { memo, useRef, useCallback } from 'react'
 import './habitForm.css'
-export default function HabitForm(props) {
 
-    const inputRef = React.createRef();
-    const formRef = React.createRef();
-    const handleAdd = e => {
-        e.preventDefault();
-        const name = inputRef.current.value;
-        name && props.onAdd(name);
-        formRef.current.reset();
-    }
+// props onAdd={handleAdd}만 존재
+//memo는 특정 결과값을 재사용, useCallback은 특정 함수를 재사용 => re-rendering이 안되게
+
+const HabitForm = memo(props => {
+
+    const inputRef = useRef();
+    const formRef = useRef();
+    const handleAdd = useCallback(
+        e => {
+            e.preventDefault();
+            const name = inputRef.current.value;
+            name && props.onAdd(name);
+            formRef.current.reset();
+        }
+    )
 
     return (
         <form ref={formRef} className="add-form" onSubmit={handleAdd}>
@@ -23,3 +29,6 @@ export default function HabitForm(props) {
         </form>
     )
 }
+)
+
+export default HabitForm;

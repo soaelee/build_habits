@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import './habit.css';
 
-export default function Habit(props) {
+const Habit = memo(props => {
 
-    const handleIncrement = () => {
-        props.onIncrement(props.habit);
-    }
+    // const handleIncrement = () => {
+    //     props.onIncrement(props.habit);
+    // }
 
-    const handleDecrement = () => {
-        props.onDecrement(props.habit);
-    }
+    // const handleDecrement = () => {
+    //     props.onDecrement(props.habit);
+    // }
 
-    const handleDelete = () => {
-        props.onDelete(props.habit);
-    }
+    // const handleDelete = () => {
+    //     props.onDelete(props.habit);
+    // }
+    const handleIncrement = useCallback(
+        () => {
+            props.onIncrement(props.habit);
+        }
+    )
+
+    const handleDecrement = useCallback(
+        () => {
+            props.onDecrement(props.habit);
+        }
+    )
+
+    const handleDelete = useCallback(
+        () => {
+            props.onDelete(props.habit);
+        }
+    )
 
     return (
         <li>
@@ -38,4 +55,6 @@ export default function Habit(props) {
             </button>
         </li>
     )
-}
+});
+
+export default Habit;

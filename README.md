@@ -9,4 +9,6 @@
 
 ### 보충사항
 
-PureComponent를 구현하는 법
+PureComponent를 구현하는 법 = memo, useCallback, useRef
+
+* 그러나 해결되지 않음 => 방법 강구해봐야함
